@@ -15,5 +15,6 @@ namespace FinalProjectWebAPI.Data
         }
 
         public DbSet<FinalProjectWebAPI.Models.Food> Food { get; set; } = default!;
+        public DbSet<FinalProjectWebAPI.Models.Student> Student { get; set; } = default!;
     }
 }
