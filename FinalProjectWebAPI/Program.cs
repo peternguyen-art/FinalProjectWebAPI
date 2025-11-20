@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using FinalProjectWebAPI.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<FinalProjectWebAPIContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("FinalProjectWebAPIContext") ?? throw new InvalidOperationException("Connection string 'FinalProjectWebAPIContext' not found.")));
 
 // Add services to the container.
 
