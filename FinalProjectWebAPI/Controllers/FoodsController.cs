@@ -31,11 +31,13 @@ namespace FinalProjectWebAPI.Controllers
         public IActionResult GetFood(int id)
         {
             Food food = _context.Food.Find(id);
-            if (food == null)
+            if (food == null || id == 0)
             {
-                return NotFound();
+                List<Food> firstFiveFoods = _context.Food.Take(5).ToList();
+                return Ok(firstFiveFoods);
             }
-            return Ok(food);
+            else 
+                return Ok(food);
         }
         [HttpPost]
         public IActionResult PostFood(Food food)
