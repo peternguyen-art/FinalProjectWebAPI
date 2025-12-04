@@ -31,12 +31,14 @@ namespace FinalProjectWebAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetStudent(int id)
         {
-            var student = _context.Student.Find(id);
-            if (student == null)
+            Student student = _context.Student.Find(id);
+            if (student == null || id == 0)
             {
-                return NotFound();
+                List<Student> firstFiveStudents = _context.Student.Take(5).ToList();
+                return Ok(firstFiveStudents);
             }
-            return Ok(student);
+            else
+                return Ok(student);
         }
 
         [HttpPost]
