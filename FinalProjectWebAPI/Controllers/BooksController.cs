@@ -27,7 +27,7 @@ namespace FinalProjectWebAPI.Controllers
             return Ok(book);
         }
         [HttpGet("{id}")]
-        public IActionResult Getbook(int id)
+        public IActionResult GetBook(int id)
         {
             Book book = _context.Book.Find(id);
             if (book == null || id == 0)
@@ -39,7 +39,7 @@ namespace FinalProjectWebAPI.Controllers
                 return Ok(book);
         }
         [HttpPost]
-        public IActionResult Postbook(Book book)
+        public IActionResult PostBook(Book book)
         {
             try
             {
@@ -53,7 +53,7 @@ namespace FinalProjectWebAPI.Controllers
             return Ok();
         }
         [HttpDelete("{id}")]
-        public IActionResult Deletebook(int id)
+        public IActionResult DeleteBook(int id)
         {
             Book book = _context.Book.Find(id);
             if (book == null)
@@ -72,7 +72,7 @@ namespace FinalProjectWebAPI.Controllers
             return Ok();
         }
         [HttpPut]
-        public IActionResult Putbook(Book book)
+        public IActionResult PutBook(Book book)
         {
             try
             {

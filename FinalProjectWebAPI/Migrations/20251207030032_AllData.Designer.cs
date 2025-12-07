@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProjectWebAPI.Migrations
 {
     [DbContext(typeof(FinalProjectWebAPIContext))]
-    [Migration("20251206235214_BookData")]
-    partial class BookData
+    [Migration("20251207030032_AllData")]
+    partial class AllData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

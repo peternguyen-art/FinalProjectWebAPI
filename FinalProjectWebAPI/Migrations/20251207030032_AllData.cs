@@ -6,11 +6,28 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FinalProjectWebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class studentData : Migration
+    public partial class AllData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Book",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Genre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    YearPublished = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Book", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Food",
                 columns: table => new
@@ -26,6 +43,23 @@ namespace FinalProjectWebAPI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Food", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Movie",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Genre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReleaseDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Director = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Runtime = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Movie", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -50,7 +84,13 @@ namespace FinalProjectWebAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Book");
+
+            migrationBuilder.DropTable(
                 name: "Food");
+
+            migrationBuilder.DropTable(
+                name: "Movie");
 
             migrationBuilder.DropTable(
                 name: "Student");
