@@ -21,11 +21,12 @@ public class MoviesController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetFood()
+    public IActionResult GetMovie()
     {
         var movie = _context.Movie.ToList();
-        return Ok(movie);
+        return Ok();
     }
+
     [HttpGet("{id}")]
     public IActionResult GetMovie(int id)
     {

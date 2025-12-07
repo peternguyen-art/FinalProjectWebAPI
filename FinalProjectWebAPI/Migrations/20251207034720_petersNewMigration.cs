@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FinalProjectWebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class AllData : Migration
+    public partial class petersNewMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
