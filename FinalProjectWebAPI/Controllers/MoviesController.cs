@@ -43,7 +43,7 @@ public class MoviesController : ControllerBase
     {
         try
         {
-            _context.Food.Add(movie);
+            _context.Movie.Add(movie);
             _context.SaveChanges();
         }
         catch (Exception ex)
@@ -86,5 +86,5 @@ public class MoviesController : ControllerBase
         return Ok();
     }
 }
-}
+
 
